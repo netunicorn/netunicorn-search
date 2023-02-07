@@ -1,0 +1,10 @@
+.env
+.env.save
+.idea
+.ipynb_checkpoints
+*.pcap
+**/MachineLearningCVE
+**/*.zip
+**/__pycache__
+**/*.pyc
+temp
