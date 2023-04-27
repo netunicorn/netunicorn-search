@@ -17,8 +17,8 @@ gradle -p ../../../CICFlowMeter exeCMD -Pmyargs=''$(pwd)'/patator-443-2.pcap,'$(
 ../../src_ttl_extractor/target/release/src_ttl_extractor ./patator-443-2.pcap_Flow.csv ./patator-443-2.pcap 128.111.5.227 ./campus_ttl_2.csv >> /dev/null
 rm patator-dirty-2.pcap patator-443-2.pcap
 
-mv patator-443-1.pcap_Flow.csv campus_dataset_1.csv
-mv patator-443-2.pcap_Flow.csv campus_dataset_2.csv
+mv patator-443-1.pcap_Flow.csv campus_cicfeatures_1.csv
+mv patator-443-2.pcap_Flow.csv campus_cicfeatures_2.csv
 
 
 
@@ -32,8 +32,8 @@ gradle -p ../../../CICFlowMeter exeCMD -Pmyargs=''$(pwd)'/patator-443-azure-2.pc
 ../../src_ttl_extractor/target/release/src_ttl_extractor ./patator-443-azure-2.pcap_Flow.csv ./patator-443-azure-2.pcap 10.1.0.4 ./azure_ttl_2.csv >> /dev/null
 rm patator-azure-2.pcap patator-443-azure-2.pcap
 
-mv patator-443-azure-1.pcap_Flow.csv azure_dataset_1.csv
-mv patator-443-azure-2.pcap_Flow.csv azure_dataset_2.csv
+mv patator-443-azure-1.pcap_Flow.csv azure_cicfeatures_1.csv
+mv patator-443-azure-2.pcap_Flow.csv azure_cicfeatures_2.csv
 
 
 
@@ -47,5 +47,5 @@ gradle -p ../../../CICFlowMeter exeCMD -Pmyargs=''$(pwd)'/patator-443-multicloud
 ../../src_ttl_extractor/target/release/src_ttl_extractor ./patator-443-multicloud-2.pcap_Flow.csv ./patator-443-multicloud-2.pcap 10.1.0.4 ./multicloud_ttl_2.csv >> /dev/null
 rm patator-multicloud-2.pcap patator-443-multicloud-2.pcap
 
-mv patator-443-multicloud-1.pcap_Flow.csv multicloud_dataset_1.csv
-mv patator-443-multicloud-2.pcap_Flow.csv multicloud_dataset_2.csv
+mv patator-443-multicloud-1.pcap_Flow.csv multicloud_cicfeatures_1.csv
+mv patator-443-multicloud-2.pcap_Flow.csv multicloud_cicfeatures_2.csv
