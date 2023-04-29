@@ -15,6 +15,8 @@ class LetsEncryptDNS01Validation(Task):
 
 
 class LetsEncryptHTTP01Validation(Task):
+    requirements = ['pip install requests']
+
     def __init__(
             self, domain: str, token: str, token_content: str, *args, **kwargs
     ):
