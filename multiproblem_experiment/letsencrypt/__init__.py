@@ -1,6 +1,19 @@
 from netunicorn.base.task import Task
 from .tasks import validate_dns_01, validate_http_01
 
+
+class LetsEncryptDNS01Validation(Task):
+    def __init__(
+            self, domain: str, token: str, *args, **kwargs
+    ):
+        self.domain = domain
+        self.token = token
+        super().__init__(*args, **kwargs)
+
+    def run(self):
+        return validate_dns_01(self.domain, self.token)
+
+
 class LetsEncryptHTTP01Validation(Task):
     def __init__(
             self, domain: str, token: str, token_content: str, *args, **kwargs
