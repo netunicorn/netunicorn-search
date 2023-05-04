@@ -2,7 +2,7 @@ import os
 
 from netunicorn.base.experiment import Experiment
 from netunicorn.base.pipeline import Pipeline
-from netunicorn.library.basic import ShellCommand
+from netunicorn.library.tasks.basic import ShellCommand
 from netunicorn.client.remote import RemoteClient
 from .various_tasks.patator_tasks import BenignTask
 

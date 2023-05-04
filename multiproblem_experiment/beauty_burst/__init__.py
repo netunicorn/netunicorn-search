@@ -1,7 +1,7 @@
 from typing import Optional
 
-from netunicorn.base import Minion
-from netunicorn.base.task import Task, TaskDispatcher, Result
+from netunicorn.base.nodes import Node
+from netunicorn.base import Result, Task, TaskDispatcher
 
 from multiproblem_experiment.beauty_burst.tasks_definition import watch
 
@@ -37,7 +37,7 @@ class WatchYoutube(TaskDispatcher):
         self.use_xvfb = use_xvfb
         super().__init__()
 
-    def dispatch(self, minion: Minion) -> Task:
+    def dispatch(self, minion: Node) -> Task:
         if minion.properties.get("os_family", "").lower() == "linux":
             return WatchYoutubeLinuxImplementation(
                 url=self.url, duration=self.duration, use_xvfb=self.use_xvfb

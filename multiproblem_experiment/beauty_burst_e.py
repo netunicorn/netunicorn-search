@@ -5,9 +5,9 @@ import cloudpickle
 
 from netunicorn.base.experiment import Experiment
 from netunicorn.base.pipeline import Pipeline
-from netunicorn.library.upload.webdav import UploadToWebDavImplementation
+from netunicorn.library.tasks.upload.webdav import UploadToWebDavImplementation
 from netunicorn.client.remote import RemoteClient
-from netunicorn.library.pcapture import StartCaptureLinuxImplementation, StopAllTCPDumpsLinuxImplementation
+from netunicorn.library.tasks.pcapture import StartCaptureLinuxImplementation, StopAllTCPDumpsLinuxImplementation
 
 import beauty_burst.tasks_definition as tasks_definition
 import beauty_burst

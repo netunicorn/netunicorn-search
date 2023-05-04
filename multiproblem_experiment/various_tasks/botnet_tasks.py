@@ -119,7 +119,7 @@ class CVE20140160(Task):
 
     def run(self):
         import requests
-        from netunicorn.library.heartbleed.heartbleeder import connect, send_hello, bleed
+        from netunicorn.library.tasks.heartbleed.heartbleeder import connect, send_hello, bleed
 
         with open(self.hosts_filename, "rb") as f:
             alive_hosts = pickle.load(f)

@@ -4,9 +4,9 @@ import string
 
 from netunicorn.base import Experiment, Pipeline
 from netunicorn.client.remote import RemoteClient
-from netunicorn.library.upload.webdav import UploadToWebDavImplementation
-from netunicorn.library.pcapture import StartCaptureLinuxImplementation, StopAllTCPDumpsLinuxImplementation
-from netunicorn.library.qoe_youtube import WatchYouTubeVideo
+from netunicorn.library.tasks.upload.webdav import UploadToWebDavImplementation
+from netunicorn.library.tasks.pcapture import StartCaptureLinuxImplementation, StopAllTCPDumpsLinuxImplementation
+from netunicorn.library.tasks.qoe_youtube import WatchYouTubeVideo
 
 pipeline = Pipeline()
 pipeline.environment_definition.image = "redacted"

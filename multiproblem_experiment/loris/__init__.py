@@ -1,4 +1,4 @@
-from netunicorn.base.task import Task, Result
+from netunicorn.base import Task, Result
 from .slowloris import main
 from .smbloris import smbloris
 
