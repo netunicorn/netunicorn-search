@@ -31,9 +31,9 @@ client = RemoteClient(
     login="<login>",
     password="<password>",
 )
-pool = client.get_minion_pool().take(20)
+pool = client.get_nodes().take(20)
 print(f"Pool length: {len(pool)}")
-experiment.map(pool, pipeline)
+experiment.map(pipeline, pool)
 
 label = "aabb-all-1.0.23"
 print(f"Send experiment preparation request, {datetime.now()}")

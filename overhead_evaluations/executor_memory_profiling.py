@@ -13,7 +13,7 @@ import cloudpickle
 import requests as req
 import requests.exceptions
 
-from netunicorn.base.pipeline import Pipeline, PipelineElementResult, PipelineResult
+from netunicorn.base.pipeline import Pipeline
 from netunicorn.base.task import Task
 from netunicorn.base.utils import NonStablePool as Pool
 from returns.pipeline import is_successful
@@ -56,8 +56,8 @@ class PipelineExecutor:
         self.backoff_func = (0.1 * x for x in itertools.count(1))
 
         self.pipeline: Optional[Pipeline] = None
-        self.step_results: List[PipelineElementResult] = []
-        self.pipeline_results: Optional[Result[PipelineResult, PipelineResult]] = None
+        self.step_results: List = []
+        self.pipeline_results: Optional[Result] = None
         self.state = PipelineExecutorState.LOOKING_FOR_PIPELINE
 
     @profile

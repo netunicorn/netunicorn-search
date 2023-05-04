@@ -1,5 +1,5 @@
 from netunicorn.executor.executor import PipelineExecutor, PipelineExecutorState
-from netunicorn.library.basic import SleepTask
+from netunicorn.library.tasks.basic import SleepTask
 from netunicorn.base.pipeline import Pipeline
 from timeit import default_timer as timer
 
