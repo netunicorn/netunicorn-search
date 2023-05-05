@@ -54,9 +54,9 @@ client = RemoteClient(
     password=os.environ['UNICORN_PASSWORD']
 )
 
-minion_pool = client.get_minion_pool().filter('kernel', 'Linux')
+minion_pool = client.get_nodes().filter(lambda x: x['kernel'] == 'Linux')
 
-experiment = Experiment().map(minion_pool, pipeline)
+experiment = Experiment().map(pipeline, minion_pool.take(10))
 experiment.keep_alive_timeout_minutes = 200
 
 experiment_label = "beauty-burst-1.0"

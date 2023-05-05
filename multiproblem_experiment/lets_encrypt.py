@@ -22,9 +22,9 @@ client = RemoteClient(
     password=os.environ['UNICORN_PASSWORD']
 )
 
-minion_pool = client.get_minion_pool()
+minion_pool = client.get_nodes()
 
-experiment = Experiment().map(validation_pipeline, minion_pool)
+experiment = Experiment().map(validation_pipeline, minion_pool.take(10))
 
 experiment_label = 'letsencrypt_validate_dns_0.0.1'
 client.prepare_experiment(experiment, experiment_label)

@@ -32,11 +32,11 @@ client = RemoteClient(
     password=os.environ['UNICORN_PASSWORD']
 )
 
-minion_pool = client.get_minion_pool()
-attacker_pool = minion_pool.filter('location', 'library')
-benign_pool = minion_pool.filter('location', 'lab')
+minion_pool = client.get_nodes()
+attacker_pool = minion_pool.filter(lambda x: x['location'] == 'library')
+benign_pool = minion_pool.filter(lambda x: x['location'] == 'lab')
 
-experiment = Experiment().map(attacker_pool, attacker_pipeline).map(benign_pool, benign_pipeline)
+experiment = Experiment().map(attacker_pipeline, attacker_pool.take(10)).map(benign_pipeline, benign_pool.take(10))
 
 experiment_label = 'patator-0.1.5'
 client.prepare_experiment(experiment, experiment_label)

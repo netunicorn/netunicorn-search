@@ -37,9 +37,9 @@ client = RemoteClient(
     password=os.environ['UNICORN_PASSWORD']
 )
 
-minion_pool = client.get_minion_pool()
+minion_pool = client.get_nodes()
 
-experiment = Experiment().map(minion_pool, attacker_pipeline)
+experiment = Experiment().map(attacker_pipeline, minion_pool.take(10))
 
 experiment_label = 'botnet-0.1.1'
 client.prepare_experiment(experiment, experiment_label)
