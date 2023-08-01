@@ -1,7 +1,7 @@
 scp server:/tmp/patator-dirty-1.pcap .
 tshark -r patator-dirty-1.pcap -Y 'tcp.port==443' -w patator-443-1.pcap
-gradle -p ../../../CICFlowMeter exeCMD -Pmyargs=''$(pwd)'/patator-443-1.pcap,'$(pwd)'' >> /dev/null
-../../src_ttl_extractor/target/release/src_ttl_extractor ./patator-443-1.pcap_Flow.csv ./patator-443-1.pcap 128.111.5.227 ./campus_ttl_1.csv >> /dev/null
+docker run -v $(pwd)/patator-443-1.pcap:/tmp/patator-443-1.pcap -v $(pwd):/tmp/output --rm pinot.cs.ucsb.edu/cicflowmeter:latest /tmp/patator-443-1.pcap /tmp/output
+../../tools/    src_ttl_extractor/target/release/src_ttl_extractor ./patator-443-1.pcap_Flow.csv ./patator-443-1.pcap 128.111.5.227 ./campus_ttl_1.csv >> /dev/null
 rm patator-dirty-1.pcap patator-443-1.pcap
 mv patator-443-1.pcap_Flow.csv campus_cicfeatures_1.csv
 
